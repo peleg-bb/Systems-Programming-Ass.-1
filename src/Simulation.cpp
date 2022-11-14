@@ -8,6 +8,13 @@ Simulation::Simulation(Graph graph, vector<Agent> agents) : mGraph(graph), mAgen
 void Simulation::step()
 {
     // TODO: implement this method
+
+    // for each party node in the graph:
+    // party.step()
+
+
+    // for agent in agents:
+    //     agent.step()
 }
 
 bool Simulation::shouldTerminate() const
