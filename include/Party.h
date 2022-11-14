@@ -30,4 +30,6 @@ private:
     int mMandates;
     JoinPolicy *mJoinPolicy;
     State mState;
+    // need to implement a timer
+    //int mTimer;
 };
