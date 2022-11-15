@@ -1,7 +1,16 @@
 #pragma once
 
-class SelectionPolicy { };
+class SelectionPolicy {
+    public:
+        SelectionPolicy();
+        virtual ~SelectionPolicy();
+        virtual int select() = 0;
+ };
 
-class MandatesSelectionPolicy: public SelectionPolicy{ };
+class MandatesSelectionPolicy: public SelectionPolicy{ 
+    int select() override;
+};
 
-class EdgeWeightSelectionPolicy: public SelectionPolicy{ };
+class EdgeWeightSelectionPolicy: public SelectionPolicy{
+    int select() override;
+ };

@@ -1,7 +1,6 @@
 // a header file for the Coalition class
 #pragma once
 #include "Party.h"
-#include "Graph.h"
 #include <vector>
 
 using std::vector;
@@ -9,11 +8,14 @@ using std::vector;
 class Coalition
 {
 public:
-    Coalition(const Graph &graph, const vector<Party> &parties);
-    void step();
+    Coalition(const vector<Party> &parties);
     bool shouldTerminate() const;
-    const Graph &getGraph() const;
     const vector<Party> &getParties() const;
-    const Party &getParty(int partyId) const;
-    const vector<vector<int>> getPartiesByCoalitions() const;
+    int mandates;
+    void addParty(const Party &party);
+private:
+    vector<Party> mParties;
+
+    //const vector<vector<int>> getPartiesByCoalitions() const;
+    
 };

@@ -1,10 +1,13 @@
 #pragma once
 #include <string>
+#include <vector>
+#include "Offer.h"
 
 using std::string;
 
 class JoinPolicy;
 class Simulation;
+class Offer;
 
 enum State
 {
@@ -23,13 +26,19 @@ public:
     int getMandates() const;
     void step(Simulation &s);
     const string &getName() const;
+    void acceptOffer(Offer &offer);
+
 
 private:
     int mId;
     string mName;
     int mMandates;
-    JoinPolicy *mJoinPolicy;
+    JoinPolicy * mJoinPolicy;
     State mState;
+    // vector of offers
+    std::vector<Offer> mOffers;
+
+
     // need to implement a timer
-    //int mTimer;
+    int _timer;
 };

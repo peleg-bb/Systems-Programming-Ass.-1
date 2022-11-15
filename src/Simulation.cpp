@@ -3,14 +3,14 @@
 Simulation::Simulation(Graph graph, vector<Agent> agents) : mGraph(graph), mAgents(agents) 
 {
     // You can change the implementation of the constructor, but not the signature!
+    coalitionFormed =false;
 }
 
 void Simulation::step()
 {
     // TODO: implement this method
 
-    // for each party node in the graph:
-    // party.step()
+    
 
 
     // for agent in agents:
@@ -19,8 +19,7 @@ void Simulation::step()
 
 bool Simulation::shouldTerminate() const
 {
-    // TODO implement this method
-    return true;
+    return coalitionFormed;
 }
 
 const Graph &Simulation::getGraph() const
@@ -45,3 +44,49 @@ const vector<vector<int>> Simulation::getPartiesByCoalitions() const
     // TODO: you MUST implement this method for getting proper output, read the documentation above.
     return vector<vector<int>>();
 }
+
+// rule of 5
+Simulation::Simulation(const Simulation &other) : mGraph(other.mGraph), mAgents(other.mAgents)
+{
+    // copy ctor
+    this->mGraph = other.mGraph;
+    this->mAgents = other.mAgents;
+}
+
+Simulation &Simulation::operator=(const Simulation &other)
+{
+    if (this != &other)
+    {
+        mGraph = other.mGraph;
+        mAgents = other.mAgents;
+    }
+    return *this;
+}
+
+
+Simulation::~Simulation()
+{
+    
+}
+
+// move constructor
+Simulation::Simulation(Simulation &&other) noexcept : mGraph(other.mGraph), mAgents(other.mAgents)
+{
+    
+}
+// move assignment operator
+Simulation &Simulation::operator=(Simulation &&other) noexcept
+{
+    if (this != &other)
+    {
+        mGraph = other.mGraph;
+        mAgents = other.mAgents;
+    }
+    return *this;
+}
+
+void Simulation::notifyTermination()
+{
+    coalitionFormed = true;
+}
+
