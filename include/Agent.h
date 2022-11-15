@@ -19,6 +19,7 @@ public:
     int getPartyId() const;
     int getId() const;
     void step(Simulation &);
+    Offer* MakeOffer(const Coalition &coalition, Party &party);
 
 private:
     int mAgentId;

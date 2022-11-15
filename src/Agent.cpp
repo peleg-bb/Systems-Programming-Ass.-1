@@ -1,4 +1,5 @@
 #include "Agent.h"
+#include "Graph.h"
 
 Agent::Agent(int agentId, int partyId, SelectionPolicy *selectionPolicy) : mAgentId(agentId), mPartyId(partyId), mSelectionPolicy(selectionPolicy)
 {
@@ -18,6 +19,7 @@ int Agent::getPartyId() const
 void Agent::step(Simulation &sim)
 {
     // TODO: implement this method
+    // Graph g = sim.getGraph();
 }
 
 
@@ -67,4 +69,10 @@ Agent &Agent::operator=(Agent &&other) noexcept
         other.mSelectionPolicy = nullptr;
     }
     return *this;
+}
+
+Offer *Agent::MakeOffer(const Coalition &coalition, Party &party)
+{
+    Offer *offer = new Offer(coalition);
+    party.acceptOffer(*offer);
 }
