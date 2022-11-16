@@ -1,13 +1,20 @@
 #pragma once
 # include "Coalition.h"
-
+class Coalition;
 
 class Offer {
     public:
-        Coalition *coalition;
+        Coalition* coalition;
         int timeOffered;
         // constructor
-        Offer(Coalition coalition);
-        // // get coalition
+        Offer(const Coalition &coalition);
+        // 
         // Coalition* getCoalition();
+        // rule of 3
+        Offer(const Offer &other);
+        Offer &operator=(const Offer &other);
+        ~Offer();
+        // rule of 5
+        Offer(Offer &&other) noexcept;
+        Offer &operator=(Offer &&other) noexcept;
 };

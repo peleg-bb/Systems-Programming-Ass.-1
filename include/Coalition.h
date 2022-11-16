@@ -1,21 +1,17 @@
 // a header file for the Coalition class
 #pragma once
-#include "Party.h"
 #include <vector>
-
 using std::vector;
 
 class Coalition
 {
 public:
-    Coalition(const vector<Party> &parties);
+    Coalition();
     bool shouldTerminate() const;
-    const vector<Party> &getParties() const;
-    int mandates;
-    void addParty(const Party &party);
+    const vector<int> &getParties() const;
+    int _mandates;
+    void addParty(int partyId, int mandates);
 private:
-    vector<Party> mParties;
-
-    //const vector<vector<int>> getPartiesByCoalitions() const;
-    
+    vector<int> mParties;
+    //const vector<vector<int>> getPartiesByCoalitions() const;  
 };

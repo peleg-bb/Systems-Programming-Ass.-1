@@ -76,3 +76,10 @@ Offer *Agent::MakeOffer(const Coalition &coalition, Party &party)
     Offer *offer = new Offer(coalition);
     party.acceptOffer(*offer);
 }
+
+Coalition* Agent::CreateCoalition()
+{
+    Coalition *coalition = new Coalition();
+    coalition->addParty(mPartyId, 0); // TODO: add the mandates to the coalition - think about correct way to implement it
+    return coalition;
+}

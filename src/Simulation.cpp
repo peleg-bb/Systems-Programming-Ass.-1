@@ -9,10 +9,6 @@ Simulation::Simulation(Graph graph, vector<Agent> agents) : mGraph(graph), mAgen
 void Simulation::step()
 {
     // TODO: implement this method
-
-    
-
-
     // for agent in agents:
     //     agent.step()
 }

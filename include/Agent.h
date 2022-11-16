@@ -2,6 +2,7 @@
 
 #include <vector>
 #include "Graph.h"
+#include "Coalition.h"
 
 class SelectionPolicy;
 
@@ -25,4 +26,6 @@ private:
     int mAgentId;
     int mPartyId;
     SelectionPolicy *mSelectionPolicy;
+    Coalition* mCoalition;
+    Coalition* CreateCoalition();
 };

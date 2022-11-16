@@ -1,0 +1,9 @@
+{
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "/home/peleg/Documents/SPL1/SkeletonFiles/bin",
+            "binaryPath": "/home/peleg/Documents/SPL1/SkeletonFiles/bin/cRace",
+            "binaryArgs": []
+        }
+    ]
+}

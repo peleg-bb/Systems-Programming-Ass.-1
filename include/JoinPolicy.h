@@ -1,5 +1,7 @@
 #pragma once
 # include <vector>
+# include "Offer.h"
+class Offer;
 
 class JoinPolicy {
     public:
@@ -15,10 +17,10 @@ class MandatesJoinPolicy : public JoinPolicy {
 };
 
 class LastOfferJoinPolicy : public JoinPolicy {
-    private:
-        Offer lastOffer;
-
     public:
         // returns the last offer
         Offer* join(std::vector<Offer> offers);
+        // constructor
+        LastOfferJoinPolicy();
+
 };
