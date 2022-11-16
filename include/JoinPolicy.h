@@ -20,7 +20,9 @@ class LastOfferJoinPolicy : public JoinPolicy {
     public:
         // returns the last offer
         Offer* join(std::vector<Offer> offers);
+        
         // constructor
         LastOfferJoinPolicy();
 
 };
+
