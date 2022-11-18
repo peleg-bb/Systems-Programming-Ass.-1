@@ -1,5 +1,6 @@
 #include "Party.h"
 #include "JoinPolicy.h"
+#include "Simulation.h"
 
 Party::Party(int id, string name, int mandates, JoinPolicy *jp) : mId(id), mName(name), mMandates(mandates), mJoinPolicy(jp), mState(Waiting) 
 {
@@ -43,6 +44,10 @@ void Party::step(Simulation &s)
         if (chosenOffer != nullptr){
             Coalition * chosenCoalition = chosenOffer->getCoalition(); // check about the fact that this is a pointer
             chosenCoalition->addParty(mId, mMandates);
+            if (chosenCoalition->CoalitionFormed()){
+                //s.notifyTermination(chosenCoalition);
+                s.notifyTermination();
+            }
             // delete chosenOffer?
             // Most likely yes, I think we created a duplicate
             // If it is a pointer to an object that is in the vector of offers
@@ -50,6 +55,7 @@ void Party::step(Simulation &s)
 
             // delete chosenCoalition?
             // Most likely not, because it is a pointer to an the actual coalition that is in the simulation
+        
 
         }
     }

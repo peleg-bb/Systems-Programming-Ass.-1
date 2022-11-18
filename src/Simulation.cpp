@@ -3,6 +3,7 @@
 Simulation::Simulation(Graph graph, vector<Agent> agents) : mGraph(graph), mAgents(agents) 
 {
     // You can change the implementation of the constructor, but not the signature!
+    mShouldTerminate = false;
 }
 
 void Simulation::step()
@@ -21,7 +22,7 @@ void Simulation::step()
 bool Simulation::shouldTerminate() const
 {
     // TODO implement this method
-    return true;
+    return mShouldTerminate;
 }
 
 const Graph &Simulation::getGraph() const
@@ -45,4 +46,9 @@ const vector<vector<int>> Simulation::getPartiesByCoalitions() const
 {
     // TODO: you MUST implement this method for getting proper output, read the documentation above.
     return vector<vector<int>>();
+}
+
+void Simulation::notifyTermination()
+{
+    mShouldTerminate = true;
 }
