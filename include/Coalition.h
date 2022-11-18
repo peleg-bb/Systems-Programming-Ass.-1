@@ -17,4 +17,5 @@ public:
     void addParty(int partyId, int mandates);
     void addOfferedParty(int partyId);
     bool CoalitionFormed();
+    int getMandates() const;
 };

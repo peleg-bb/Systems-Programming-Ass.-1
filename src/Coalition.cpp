@@ -45,3 +45,8 @@ bool Coalition::CoalitionFormed()
 {
     return mMandates >= 61;
 }
+
+int Coalition::getMandates() const
+{
+    return mMandates;
+}
