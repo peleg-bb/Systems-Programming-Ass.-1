@@ -2,7 +2,6 @@
 #include <string>
 #include <iostream>
 #include <fstream>
-
 #include "json.hpp"
 #include "Simulation.h"
 #include "Agent.h"
@@ -12,6 +11,8 @@
 using json = nlohmann::json;
 using std::string;
 class JoinPolicy;
+class MandatesSelectionPolicy; // I added this line
+class EdgeWeightSelectionPolicy; // I added this line
 class Parser
 {
 public:

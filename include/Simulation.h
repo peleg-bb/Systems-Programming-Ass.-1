@@ -1,7 +1,6 @@
 #pragma once
 
 #include <vector>
-
 #include "Graph.h"
 #include "Agent.h"
 
@@ -20,11 +19,12 @@ public:
     const vector<Agent> &getAgents() const;
     const Party &getParty(int partyId) const;
     const vector<vector<int>> getPartiesByCoalitions() const;
-    
+
     void notifyTermination();
 
 private:
     Graph mGraph;
     vector<Agent> mAgents;
     bool mShouldTerminate;
+    int mTimer;
 };

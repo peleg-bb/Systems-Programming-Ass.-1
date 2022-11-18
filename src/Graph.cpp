@@ -29,3 +29,8 @@ vector<Party> &Graph::getParties()
 {
     return mVertices;
 }
+
+const vector<vector<int>> &Graph::getEdges() const
+{
+    return mEdges;
+}

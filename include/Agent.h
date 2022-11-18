@@ -1,11 +1,10 @@
 #pragma once
-
 #include <vector>
 #include "Graph.h"
 #include "Coalition.h"
 class Coalition;
 class SelectionPolicy;
-
+class Simulation;
 class Agent
 {
 public:

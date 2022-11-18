@@ -1,19 +1,24 @@
 #include "Simulation.h"
 
-Simulation::Simulation(Graph graph, vector<Agent> agents) : mGraph(graph), mAgents(agents) 
+Simulation::Simulation(Graph graph, vector<Agent> agents) : mGraph(graph), mAgents(agents), mShouldTerminate(false), mTimer(0)
 {
     // You can change the implementation of the constructor, but not the signature!
-    mShouldTerminate = false;
 }
 
 void Simulation::step()
 {
     // TODO: implement this method
-    for (Party &party : mGraph.getParties())
+    if(mTimer==0){
+        for (Agent agent : mAgents){
+            agent.createCoalition(mGraph.getMandates(agent.getPartyId()));            
+        }
+        mTimer = -1;
+    }
+    for (Party party : mGraph.getParties())
     {
         party.step(*this);
     }
-    for (Agent &agent : mAgents)
+    for (Agent agent : mAgents)
     {
         agent.step(*this);
     }
