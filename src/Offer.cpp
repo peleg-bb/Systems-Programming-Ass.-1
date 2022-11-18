@@ -1,8 +1,8 @@
 #include "Offer.h"
 
-Offer::Offer(Coalition *coalition) : mCoalition(coalition), mTime(0) {}
+Offer::Offer(Coalition *coalition, int mandates) : mCoalition(coalition), mTime(0), mMandates(mandates) {}
 // copy constructor
-Offer::Offer(const Offer& other) : mCoalition(other.mCoalition), mTime(other.mTime) {}
+Offer::Offer(const Offer& other) : mCoalition(other.mCoalition), mTime(other.mTime), mMandates(other.mMandates) {}
 // copy assignment operator
 Offer& Offer::operator=(const Offer& other)
 {
@@ -10,6 +10,7 @@ Offer& Offer::operator=(const Offer& other)
     {
         mCoalition = other.mCoalition;
         mTime = other.mTime;
+        mMandates = other.mMandates;
     }
     return *this;
 }
@@ -18,9 +19,11 @@ Offer::~Offer() {
     delete mCoalition;
 }
 // move constructor
-Offer::Offer(Offer&& other) : mCoalition(other.mCoalition), mTime(other.mTime)
+Offer::Offer(Offer&& other) : mCoalition(other.mCoalition), mTime(other.mTime), mMandates(other.mMandates)
 {
     other.mCoalition = nullptr;
+    other.mTime = 0;
+    other.mMandates = 0;
 }
 // move assignment operator
 Offer& Offer::operator=(Offer&& other)
@@ -29,7 +32,10 @@ Offer& Offer::operator=(Offer&& other)
     {
         mCoalition = other.mCoalition;
         mTime = other.mTime;
+        mMandates = other.mMandates;
         other.mCoalition = nullptr;
+        other.mTime = 0;
+        other.mMandates = 0;
     }
     return *this;
 }
@@ -39,9 +45,9 @@ int Offer::getTime()
 {
     return mTime;
 }
-Coalition& Offer::getCoalition()
+Coalition* Offer::getCoalition()
 {
-    return *mCoalition;
+    return mCoalition;
 }
 int Offer::getMandates()
 {

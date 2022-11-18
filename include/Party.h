@@ -1,14 +1,16 @@
 #pragma once
 #include <string>
 #include <vector>
-#include <iostream>
+#include <stdexcept>
+
 
 using std::string;
+using std::invalid_argument;
 
 class JoinPolicy;
 class Simulation;
 class Offer;
-
+class Coalition;
 enum State
 {
     Waiting,

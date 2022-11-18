@@ -9,7 +9,7 @@ private:
     int mTime;
     int mMandates;
 public:
-    Offer(Coalition *coalition);
+    Offer(Coalition *coalition, int mandates);
     // rule of 3
     // copy constructor
     Offer(const Offer& other);
@@ -25,7 +25,7 @@ public:
 
     // getters
     int getTime();
-    Coalition &getCoalition();
+    Coalition* getCoalition();
     int getMandates();
 };
 
