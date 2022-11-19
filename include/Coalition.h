@@ -4,9 +4,9 @@
 class Coalition
 {
 private:
-    std::vector<int> mPartiesJoined;
-    std::vector<int> mPartiesOffered;
-    int mMandates;
+    std::vector<int> * mPartiesJoined;
+    std::vector<int> * mPartiesOffered;
+    int* mMandates;
 public:
     Coalition(int partyId, int mandates);
     ~Coalition();
@@ -19,5 +19,5 @@ public:
     bool CoalitionFormed();
     int getMandates() const;
     const std::vector<int> &getPartiesOffered() const;
-    const std::vector<int> getPartiesJoined() const; // Perhaps I should pass by value instead of reference?
+    const std::vector<int> &getPartiesJoined() const; // Perhaps I should pass by value instead of reference?
 };

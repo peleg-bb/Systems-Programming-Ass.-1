@@ -4,6 +4,7 @@ class JoinPolicy {
 public:
     virtual Offer * Join(std::vector<Offer *> &offers) = 0;
     virtual ~JoinPolicy() = default;
+    
 };
 
 class MandatesJoinPolicy : public JoinPolicy 
