@@ -18,4 +18,6 @@ public:
     void addOfferedParty(int partyId);
     bool CoalitionFormed();
     int getMandates() const;
+    const std::vector<int> &getPartiesOffered() const;
+    const std::vector<int> getPartiesJoined() const; // Perhaps I should pass by value instead of reference?
 };

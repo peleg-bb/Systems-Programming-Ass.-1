@@ -56,7 +56,11 @@ Party &Simulation::GetParty(int partyId)
 const vector<vector<int>> Simulation::getPartiesByCoalitions() const
 {
     // TODO: you MUST implement this method for getting proper output, read the documentation above.
-    return vector<vector<int>>();
+    vector<vector<int>> _coalitionsVector;
+    for(Coalition coalition : mCoalitions){
+        _coalitionsVector.push_back(coalition.getPartiesJoined());
+    }
+    return _coalitionsVector;
 }
 
 void Simulation::notifyTermination()

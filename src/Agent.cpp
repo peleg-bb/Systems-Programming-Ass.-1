@@ -19,14 +19,16 @@ int Agent::getPartyId() const
 void Agent::step(Simulation &sim)
 {
     // TODO: implement this method
-    int bestIndex = mSelectionPolicy->Select(sim.getGraph().getEdges(), mPartyId);
+    int bestIndex = mSelectionPolicy->Select(sim.getGraph().getEdges(), mPartyId, mCoalition->getPartiesOffered());
     Party& party = sim.GetParty(bestIndex); // Returns a non-const reference to the party, should be deleted in sim I believe
     offerParty(party);
+    mCoalition->addOfferedParty(bestIndex);
 }
 
 void Agent::createCoalition(int mandates)
 {
     mCoalition = new Coalition(getPartyId(), mandates);
+    mCoalition->addOfferedParty(getPartyId());
 }
 
 void Agent::offerParty(Party& party)

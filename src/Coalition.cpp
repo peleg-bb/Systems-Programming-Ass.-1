@@ -50,3 +50,11 @@ int Coalition::getMandates() const
 {
     return mMandates;
 }
+const std::vector<int> &Coalition::getPartiesOffered() const
+{
+    return mPartiesOffered;
+}
+const std::vector<int> Coalition::getPartiesJoined() const
+{
+    return mPartiesJoined;
+}

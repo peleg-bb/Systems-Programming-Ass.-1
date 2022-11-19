@@ -6,6 +6,7 @@
 
 using std::string;
 using std::vector;
+class Coalition;
 
 class Simulation
 {
@@ -20,12 +21,13 @@ public:
     const Party &getParty(int partyId) const;
     const vector<vector<int>> getPartiesByCoalitions() const;
     Party &GetParty(int partyId); // Note: this method is not const, because it returns a non-const reference to the party
-
+    
     void notifyTermination();
 
 private:
     Graph mGraph;
     vector<Agent> mAgents;
+    vector<Coalition> mCoalitions;
     bool mShouldTerminate;
     int mTimer;
 };
