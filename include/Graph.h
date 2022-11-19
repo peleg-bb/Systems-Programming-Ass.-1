@@ -12,7 +12,8 @@ public:
     int getEdgeWeight(int v1, int v2) const;
     int getNumVertices() const;
     const Party &getParty(int partyId) const;
-    vector<Party> &getParties();
+    Party &GetParty(int partyId);
+    vector<Party> &getParties(); // Note: this method is not const, because it returns a non-const reference to the party
     const vector<vector<int>> &getEdges() const;
 
 

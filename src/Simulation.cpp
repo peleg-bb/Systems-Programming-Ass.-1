@@ -45,6 +45,12 @@ const Party &Simulation::getParty(int partyId) const
     return mGraph.getParty(partyId);
 }
 
+Party &Simulation::GetParty(int partyId)
+{
+    // Note: this method is not const, because it returns a non-const reference to the party
+    return mGraph.GetParty(partyId);
+}
+
 /// This method returns a "coalition" vector, where each element is a vector of party IDs in the coalition.
 /// At the simulation initialization - the result will be [[agent0.partyId], [agent1.partyId], ...]
 const vector<vector<int>> Simulation::getPartiesByCoalitions() const

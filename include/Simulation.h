@@ -19,6 +19,7 @@ public:
     const vector<Agent> &getAgents() const;
     const Party &getParty(int partyId) const;
     const vector<vector<int>> getPartiesByCoalitions() const;
+    Party &GetParty(int partyId); // Note: this method is not const, because it returns a non-const reference to the party
 
     void notifyTermination();
 
