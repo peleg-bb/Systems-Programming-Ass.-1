@@ -41,6 +41,7 @@ void Party::step(Simulation &s)
         if (chosenOffer != nullptr){
             Coalition * chosenCoalition = chosenOffer->getCoalition(); // check about the fact that this is a pointer
             chosenCoalition->addParty(mId, mMandates);
+            
             if (chosenCoalition->CoalitionFormed()){
                 //s.notifyTermination(chosenCoalition);
                 s.notifyTermination();

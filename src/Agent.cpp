@@ -1,7 +1,7 @@
 #include "Agent.h"
 #include "SelectionPolicy.h"
 #include "Simulation.h"
-Agent::Agent(int agentId, int partyId, SelectionPolicy *selectionPolicy) : mAgentId(agentId), mPartyId(partyId), mSelectionPolicy(selectionPolicy), mCoalition(nullptr)
+Agent::Agent(int agentId, int partyId, SelectionPolicy *selectionPolicy) : mAgentId(agentId), mPartyId(partyId), mSelectionPolicy(selectionPolicy), mCoalition(new Coalition())
 {
     // You can change the implementation of the constructor, but not the signature!
 }
@@ -30,7 +30,7 @@ void Agent::step(Simulation &sim)
 void Agent::createCoalition(int mandates)
 {
     // This method is seperated from the constructor, because only in some occasions we want to create a new coalition
-    mCoalition = new Coalition(getPartyId(), mandates);
+    mCoalition->addParty(mPartyId, mandates);
     mCoalition->addOfferedParty(getPartyId());
 }
 
@@ -44,7 +44,7 @@ void Agent::offerParty(Party& party)
 
 // rule of 5
 // copy constructor
-Agent::Agent(const Agent& other) : mAgentId(other.mAgentId), mPartyId(other.mPartyId), mSelectionPolicy(other.mSelectionPolicy->clone()), mCoalition(other.mCoalition)
+Agent::Agent(const Agent& other) : mAgentId(other.mAgentId), mPartyId(other.mPartyId), mSelectionPolicy(other.mSelectionPolicy->clone()), mCoalition(other.mCoalition->clone())
 {
 }
 // copy assignment
@@ -55,7 +55,7 @@ Agent& Agent::operator=(const Agent& other)
         mAgentId = other.mAgentId;
         mPartyId = other.mPartyId;
         mSelectionPolicy = other.mSelectionPolicy->clone();
-        mCoalition = other.mCoalition;
+        mCoalition = other.mCoalition->clone();
     }
     return *this;
 }
