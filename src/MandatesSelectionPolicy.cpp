@@ -21,3 +21,6 @@ int MandatesSelectionPolicy::Select(std::vector<std::vector<int>> edges, int myI
     }
     return bestIndex;
 }
+MandatesSelectionPolicy* MandatesSelectionPolicy::clone() const {
+    return new MandatesSelectionPolicy();
+}

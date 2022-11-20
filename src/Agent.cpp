@@ -44,7 +44,7 @@ void Agent::offerParty(Party& party)
 
 // rule of 5
 // copy constructor
-Agent::Agent(const Agent& other) : mAgentId(other.mAgentId), mPartyId(other.mPartyId), mSelectionPolicy(other.mSelectionPolicy), mCoalition(other.mCoalition)
+Agent::Agent(const Agent& other) : mAgentId(other.mAgentId), mPartyId(other.mPartyId), mSelectionPolicy(other.mSelectionPolicy->clone()), mCoalition(other.mCoalition)
 {
 }
 // copy assignment
@@ -54,7 +54,7 @@ Agent& Agent::operator=(const Agent& other)
     {
         mAgentId = other.mAgentId;
         mPartyId = other.mPartyId;
-        mSelectionPolicy = other.mSelectionPolicy;
+        mSelectionPolicy = other.mSelectionPolicy->clone();
         mCoalition = other.mCoalition;
     }
     return *this;
