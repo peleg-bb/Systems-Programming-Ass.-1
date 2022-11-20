@@ -4,9 +4,9 @@
 class Coalition
 {
 private:
-    std::vector<int> * mPartiesJoined;
-    std::vector<int> * mPartiesOffered;
-    int* mMandates;
+    std::vector<int>  mPartiesJoined;
+    std::vector<int>  mPartiesOffered;
+    int mMandates;
 public:
     Coalition(int partyId, int mandates);
     ~Coalition();
