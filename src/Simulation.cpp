@@ -17,6 +17,7 @@ void Simulation::step()
     for (Party party : mGraph.getParties())
     {
         party.step(*this);
+
         // check if all parties have joined a coalition
     }
     for (Agent agent : mAgents)
@@ -67,4 +68,10 @@ const vector<vector<int>> Simulation::getPartiesByCoalitions() const
 void Simulation::notifyTermination()
 {
     mShouldTerminate = true;
+}
+
+void Simulation::notifyJoined(const Coalition &coalition, int partyId) 
+{
+    Agent agent(partyId, partyId, coalition.getSelectionPolicy()); // beware of the selection policy, it might be deleted at the end of this block
+    mAgents.push_back(agent); // I think a copy constructor is called here
 }

@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include "SelectionPolicy.h"
 
 class Coalition
 {
@@ -7,6 +8,7 @@ private:
     std::vector<int>  mPartiesJoined;
     std::vector<int>  mPartiesOffered;
     int mMandates;
+    SelectionPolicy* mSelectionPolicy; // Should be deleted in destructor
 public:
     Coalition(int partyId, int mandates);
     Coalition();
@@ -27,4 +29,5 @@ public:
     void setMandates(int mandates);
     void setPartiesJoined(std::vector<int> partiesJoined);
     void setPartiesOffered(std::vector<int> partiesOffered);
+    SelectionPolicy* getSelectionPolicy() const; 
 };

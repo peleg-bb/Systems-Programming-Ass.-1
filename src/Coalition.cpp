@@ -89,3 +89,8 @@ void Coalition::setPartiesOffered(std::vector<int> partiesOffered)
 {
     mPartiesOffered = partiesOffered;
 }
+
+SelectionPolicy* Coalition::getSelectionPolicy() const
+{
+    return mSelectionPolicy->clone();
+}
