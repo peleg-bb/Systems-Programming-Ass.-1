@@ -23,7 +23,7 @@ int main(int argc, char **argv)
         simulation.step();
         outPerIter.push_back(Parser::makeJson(simulation));
     }
-
+    
     // writing the outputs list to a file
     const string output_path = config_path.substr(0, config_path.find_last_of('.')) + ".out";
     std::ofstream outputFile(output_path);

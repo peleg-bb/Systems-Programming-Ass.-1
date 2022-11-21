@@ -8,6 +8,7 @@ private:
     Coalition* mCoalition;
     int mTime;
     int mMandates;
+    int mAgentId;
 public:
     Offer(Coalition *coalition, int mandates);
     // rule of 3
@@ -27,6 +28,7 @@ public:
     int getTime();
     Coalition* getCoalition();
     int getMandates();
+    int getAgentId();
 };
 
 

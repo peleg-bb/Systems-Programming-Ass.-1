@@ -6,6 +6,7 @@ Agent::Agent(int agentId, int partyId, SelectionPolicy *selectionPolicy) : mAgen
     // You can change the implementation of the constructor, but not the signature!
 }
 
+
 int Agent::getId() const
 {
     return mAgentId;
@@ -86,7 +87,17 @@ Agent& Agent::operator=(Agent&& other)
 // destructor
 Agent::~Agent()
 {
-    delete mCoalition;
+    //delete mCoalition; 
     delete mSelectionPolicy;
      // I am deleting the coalition here, but I am not sure if it is the right place
+}
+
+Agent::Agent(int PartyId, SelectionPolicy *selectionPolicy, Coalition *coalition) : mAgentId(0), mPartyId(PartyId), mSelectionPolicy(selectionPolicy), mCoalition(coalition)
+{
+    // Dangerous!! Several agents hold a pointer to the same coalition, and when one of them deletes it, the others will have a dangling pointer
+}
+
+void Agent::setAgentId(int agentId)
+{
+    mAgentId = agentId;
 }

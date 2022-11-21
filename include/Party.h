@@ -44,6 +44,6 @@ private:
     int mMandates;
     JoinPolicy *mJoinPolicy;
     State mState;
-    std::vector<Offer *> mOffers; // Probably should be a pointer to a vector of offers and not a vector of pointers to offers
+    std::vector<Offer *> mOffers; //Probably should be a pointer to a vector of offers and not a vector of pointers to offers
     int mTimer;
 };
