@@ -7,6 +7,10 @@ Simulation::Simulation(Graph graph, vector<Agent> agents) : mGraph(graph), mAgen
 
 void Simulation::step()
 {
+    if (mAgents.size()== mGraph.getNumVertices()){
+        mShouldTerminate=true;
+    }
+
     // TODO: implement this method
     if(mTimer==0){
         for (Agent agent : mAgents){
