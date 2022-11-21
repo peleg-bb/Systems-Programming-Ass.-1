@@ -6,19 +6,30 @@ MandatesSelectionPolicy::~MandatesSelectionPolicy() {}
 
 int MandatesSelectionPolicy::Select(const Graph & graph, int myIndex, vector<int> irrelevent) {
     vector<vector<int>> edges = graph.getEdges();
-    int bestMandates = 0;
+    int bestMandates = -1;
     int bestIndex = -1;
-    vector<int> relevant;
+    vector<int> relevant{};
     for (unsigned int i=0; i<edges.size(); i++){
+        //check if irrelevent contains i
+        bool contained = false;
         for (unsigned int j=0; j<irrelevent.size(); j++){
-            if (i!=irrelevent[j]){
-            relevant.push_back(i);
+            if (i==irrelevent[j]){
+                contained = true;
+                break;
             }
         }
+        if ((!contained)&&(graph.getEdgeWeight(i, myIndex)!=0)){
+            relevant.push_back(i);
+        }
+        // for (unsigned int j=0; j<irrelevent.size(); j++){
+        //     if ((irrelevent.)(i!=irrelevent[j])&&(graph.getEdgeWeight(i, myIndex)!=0)){
+        //         relevant.push_back(i);
+        //     }
+        // }
     }
 
     for (unsigned int i=0; i<relevant.size(); i++){
-        if (edges[myIndex][relevant[i]] > bestMandates) {
+        if (graph.getMandates(relevant[i]) > bestMandates) {
             bestMandates = graph.getMandates(relevant[i]);
             bestIndex = relevant[i];
         }

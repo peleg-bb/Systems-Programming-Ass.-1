@@ -47,7 +47,7 @@ void Party::step(Simulation &s)
                 //s.notifyTermination(chosenCoalition);
                 s.notifyTermination();
             }
-            delete chosenOffer;
+            //delete chosenOffer;
             // delete chosenOffer?
             // Most likely yes, I think we created a duplicate
             // If it is a pointer to an object that is in the vector of offers

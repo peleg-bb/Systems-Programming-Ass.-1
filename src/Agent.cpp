@@ -23,7 +23,7 @@ void Agent::step(Simulation &sim)
     vector<int> _partiesOffered = mCoalition->getPartiesOffered();
     const Graph & graph = sim.getGraph();
     // vector<vector<int>> adjacencyMatrix = sim.getGraph().getEdges();
-    int bestIndex = mSelectionPolicy->Select(graph, mPartyId, _partiesOffered);
+    int bestIndex = (*mSelectionPolicy).Select(graph, mPartyId, _partiesOffered);
     if (bestIndex == -1)
     {
         return; // In some occasions we have no one to offer to, in those cases we should just return

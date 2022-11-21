@@ -3,6 +3,8 @@
 EdgeWeightSelectionPolicy::EdgeWeightSelectionPolicy() {}
 EdgeWeightSelectionPolicy::~EdgeWeightSelectionPolicy() {}
 int EdgeWeightSelectionPolicy::Select(const Graph & graph, int myIndex, vector<int> irrelevent) {
+    // Irrelevant is SHIT!!!!!!!!!!!
+    // Containes rubbish
     vector<vector<int>> edges = graph.getEdges();
     int bestWeight = 0;
     int bestIndex = -1;
