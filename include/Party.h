@@ -30,12 +30,12 @@ public:
 
     //Activate the following parties after implementing the class
 
-    // // rule of 5
-    // Party(const Party& other);
-    // Party& operator=(const Party& other);
-    // Party(Party&& other);
-    // Party& operator=(Party&& other);
-    // ~Party();
+    // rule of 5
+    Party(const Party& other);
+    Party& operator=(const Party& other);
+    Party(Party&& other);
+    Party& operator=(Party&& other);
+    ~Party();
     void recieveOffer(Offer &offer);
 
 private:
@@ -44,6 +44,6 @@ private:
     int mMandates;
     JoinPolicy *mJoinPolicy;
     State mState;
-    std::vector<Offer *> mOffers;
+    std::vector<Offer *> mOffers; //Probably should be a pointer to a vector of offers and not a vector of pointers to offers
     int mTimer;
 };

@@ -2,7 +2,7 @@
 #include "JoinPolicy.h"
 #include "Simulation.h"
 
-Party::Party(int id, string name, int mandates, JoinPolicy *jp) : mId(id), mName(name), mMandates(mandates), mJoinPolicy(jp), mState(Waiting), mTimer(0)
+Party::Party(int id, string name, int mandates, JoinPolicy *jp) : mId(id), mName(name), mMandates(mandates), mJoinPolicy(jp), mState(Waiting), mTimer(0), mOffers()
 {
     // You can change the implementation of the constructor, but not the signature!
 }
@@ -41,6 +41,7 @@ void Party::step(Simulation &s)
         if (chosenOffer != nullptr){
             Coalition * chosenCoalition = chosenOffer->getCoalition(); // check about the fact that this is a pointer
             chosenCoalition->addParty(mId, mMandates);
+            
             if (chosenCoalition->CoalitionFormed()){
                 //s.notifyTermination(chosenCoalition);
                 s.notifyTermination();
@@ -69,4 +70,68 @@ void Party::recieveOffer(Offer &offer)
         mState = CollectingOffers;
     }
     mOffers.push_back(&offer);
+}
+
+// Rule of 5
+Party::Party(const Party& other) : mId(other.mId), mName(other.mName), mMandates(other.mMandates), mJoinPolicy(other.mJoinPolicy), mState(other.mState), mTimer(other.mTimer)
+{
+    for (Offer * offer : other.mOffers){
+        mOffers.push_back(offer);
+    }
+}
+// copy assignment
+Party& Party::operator=(const Party& other)
+{
+    if (this != &other){
+        mId = other.mId;
+        mName = other.mName;
+        mMandates = other.mMandates;
+        mJoinPolicy = other.mJoinPolicy;
+        mState = other.mState;
+        mTimer = other.mTimer;
+        for (Offer * offer : other.mOffers){
+            mOffers.push_back(offer);
+        }
+    }
+    return *this;
+}
+// move constructor
+Party::Party(Party&& other) : mId(other.mId), mName(other.mName), mMandates(other.mMandates), mJoinPolicy(other.mJoinPolicy), mState(other.mState), mTimer(other.mTimer), mOffers(other.mOffers)
+{
+
+    other.mId = 0;
+    other.mName = "";
+    other.mMandates = 0;
+    other.mJoinPolicy = nullptr;
+    other.mState = Waiting;
+    other.mTimer = 0;
+    other.mOffers.shrink_to_fit();
+}
+// move assignment
+Party& Party::operator=(Party&& other)
+{
+    if (this != &other){
+        mId = other.mId;
+        mName = other.mName;
+        mMandates = other.mMandates;
+        mJoinPolicy = other.mJoinPolicy;
+        mState = other.mState;
+        mTimer = other.mTimer;
+        for (Offer * offer : other.mOffers){
+            mOffers.push_back(offer);
+        }
+        other.mId = 0;
+        other.mName = "";
+        other.mMandates = 0;
+        other.mJoinPolicy = nullptr;
+        other.mState = Waiting;
+        other.mTimer = 0;
+        other.mOffers.shrink_to_fit();
+    }
+    return *this;
+}
+// destructor
+Party::~Party()
+{
+    mOffers.shrink_to_fit();
 }

@@ -13,3 +13,6 @@ Offer * MandatesJoinPolicy::Join(std::vector<Offer *> &offers) {
     return bestOffer;
 }
 MandatesJoinPolicy::~MandatesJoinPolicy() {}
+MandatesJoinPolicy* MandatesJoinPolicy::clone() const {
+    return new MandatesJoinPolicy();
+}

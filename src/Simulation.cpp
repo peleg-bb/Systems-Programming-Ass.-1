@@ -17,6 +17,7 @@ void Simulation::step()
     for (Party party : mGraph.getParties())
     {
         party.step(*this);
+        // check if all parties have joined a coalition
     }
     for (Agent agent : mAgents)
     {

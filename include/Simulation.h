@@ -23,6 +23,7 @@ public:
     Party &GetParty(int partyId); // Note: this method is not const, because it returns a non-const reference to the party
     
     void notifyTermination();
+    //void notifyJoined(const &Offer);
 
 private:
     Graph mGraph;
