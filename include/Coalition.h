@@ -4,11 +4,12 @@
 class Coalition
 {
 private:
-    std::vector<int> mPartiesJoined;
-    std::vector<int> mPartiesOffered;
+    std::vector<int>  mPartiesJoined;
+    std::vector<int>  mPartiesOffered;
     int mMandates;
 public:
     Coalition(int partyId, int mandates);
+    Coalition();
     ~Coalition();
     Coalition(const Coalition& other);
     Coalition& operator=(const Coalition& other);
@@ -19,5 +20,11 @@ public:
     bool CoalitionFormed();
     int getMandates() const;
     const std::vector<int> &getPartiesOffered() const;
-    const std::vector<int> getPartiesJoined() const; // Perhaps I should pass by value instead of reference?
+    const std::vector<int> &getPartiesJoined() const; // Perhaps I should pass by value instead of reference?
+    Coalition * clone() const;
+
+    // setters
+    void setMandates(int mandates);
+    void setPartiesJoined(std::vector<int> partiesJoined);
+    void setPartiesOffered(std::vector<int> partiesOffered);
 };

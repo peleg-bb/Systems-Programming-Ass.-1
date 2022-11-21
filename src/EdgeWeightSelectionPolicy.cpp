@@ -21,3 +21,6 @@ int EdgeWeightSelectionPolicy::Select(std::vector<std::vector<int>> edges, int m
     }
     return bestIndex;
 }
+EdgeWeightSelectionPolicy* EdgeWeightSelectionPolicy::clone() const {
+    return new EdgeWeightSelectionPolicy();
+}

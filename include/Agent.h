@@ -12,7 +12,6 @@ class Agent
 {
 public:
     Agent(int agentId, int partyId, SelectionPolicy *selectionPolicy);
-
     int getPartyId() const;
     int getId() const;
     void step(Simulation &);
@@ -21,12 +20,12 @@ public:
 
     //Activate the following parties after implementing the class
 
-    // rule of 5
-//     Agent(const Agent& other);
-//     Agent& operator=(const Agent& other);
-//     Agent(Agent&& other);
-//     Agent& operator=(Agent&& other);
-//     ~Agent(); // watch out not to delete the coalition!! I don't remember why though lol, the agent is the one who creates the coalition
+    //rule of 5
+    Agent(const Agent& other);
+    Agent& operator=(const Agent& other);
+    Agent(Agent&& other);
+    Agent& operator=(Agent&& other);
+    ~Agent(); // watch out not to delete the coalition!! I don't remember why though lol, the agent is the one who creates the coalition
 
 private:
     int mAgentId;
