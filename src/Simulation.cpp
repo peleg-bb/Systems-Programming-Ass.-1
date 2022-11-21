@@ -8,6 +8,9 @@ Simulation::Simulation(Graph graph, vector<Agent> agents) : mGraph(graph), mAgen
 void Simulation::step()
 {
     // TODO: implement this method
+       if (mAgents.size()== mGraph.getNumVertices()){
+        notifyTermination();
+    }
     if(mTimer==0){
         for (Agent agent : mAgents){
             agent.createCoalition(mGraph.getMandates(agent.getPartyId()));            
