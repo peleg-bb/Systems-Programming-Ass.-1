@@ -36,12 +36,13 @@ void Party::step(Simulation &s)
     if (getState()==CollectingOffers){
         mTimer++;
     }   
-    if (mTimer == 4){
+    if (mTimer >= 4){
         Offer * chosenOffer = mJoinPolicy->Join(mOffers);
         if (chosenOffer != nullptr){
             Coalition * chosenCoalition = chosenOffer->getCoalition(); // check about the fact that this is a pointer
             chosenCoalition->addParty(mId, mMandates);
-            
+            int agentId = chosenOffer->getAgentId();
+            s.notifyJoined(agentId, mId);
             if (chosenCoalition->CoalitionFormed()){
                 //s.notifyTermination(chosenCoalition);
                 s.notifyTermination();

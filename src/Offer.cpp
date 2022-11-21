@@ -58,3 +58,13 @@ int Offer::getMandates()
     // This used to be a bug returning mMandates instead of mCoalition->getMandates()
     // Do not change back!
 }
+
+int Offer::getAgentId()
+{
+    return mAgentId;
+}
+
+void Offer::setAgentId(int agentId)
+{
+    mAgentId = agentId;
+}

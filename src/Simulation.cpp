@@ -68,3 +68,11 @@ void Simulation::notifyTermination()
 {
     mShouldTerminate = true;
 }
+
+void Simulation::notifyJoined(int AgentId, int PartyId)
+{
+    Agent newAgent = mAgents[AgentId];
+    newAgent.setPartyId(PartyId);
+    newAgent.setAgentId((int)mAgents.size());
+    mAgents.push_back(newAgent);
+}

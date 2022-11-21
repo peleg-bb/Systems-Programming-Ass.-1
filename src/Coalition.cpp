@@ -61,7 +61,7 @@ int Coalition::getMandates() const
 }
 const std::vector<int> &Coalition::getPartiesOffered() const
 {
-    return mPartiesOffered;
+    return mPartiesOffered; //bugbug?
 }
 const std::vector<int> &Coalition::getPartiesJoined() const
 {
@@ -74,7 +74,7 @@ Coalition * Coalition::clone() const
     c->setPartiesJoined(mPartiesJoined);
     c->setPartiesOffered(mPartiesOffered);
     c->setMandates(mMandates);
-    return c;
+    return c; // memory leak?
 }
 // setters
 void Coalition::setMandates(int mandates)
