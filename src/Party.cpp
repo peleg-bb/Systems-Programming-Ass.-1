@@ -2,7 +2,7 @@
 #include "JoinPolicy.h"
 #include "Simulation.h"
 
-Party::Party(int id, string name, int mandates, JoinPolicy *jp) : mId(id), mName(name), mMandates(mandates), mJoinPolicy(jp), mState(Waiting), mTimer(0), mOffers()
+Party::Party(int id, string name, int mandates, JoinPolicy *jp) : mId(id), mName(name), mMandates(mandates), mJoinPolicy(jp), mState(Waiting), mTimer(), mOffers()
 {
     // You can change the implementation of the constructor, but not the signature!
 }
@@ -34,7 +34,7 @@ void Party::step(Simulation &s)
         return;
     }
     if (getState()==CollectingOffers){
-        mTimer++;
+        mTimer = 1;
     }   
     if (mTimer >= 4){
         Offer * chosenOffer = mJoinPolicy->Join(mOffers);
@@ -67,14 +67,14 @@ void Party::recieveOffer(Offer &offer)
         throw std::invalid_argument("Party has already joined a coalition");
     }
     if (mState == Waiting){
-        mTimer = 1;
+        mTimer++;
         mState = CollectingOffers;
     }
     mOffers.push_back(&offer);
 }
 
 // Rule of 5
-Party::Party(const Party& other) : mId(other.mId), mName(other.mName), mMandates(other.mMandates), mJoinPolicy(other.mJoinPolicy), mState(other.mState), mTimer(other.mTimer)
+Party::Party(const Party& other) : mId(other.mId), mName(other.mName), mMandates(other.mMandates), mJoinPolicy(other.mJoinPolicy), mState(other.mState), mTimer(other.getTimer())
 {
     for (Offer * offer : other.mOffers){
         mOffers.push_back(offer);
@@ -97,10 +97,10 @@ Party& Party::operator=(const Party& other)
     return *this;
 }
 // move constructor
-Party::Party(Party&& other) : mId(other.mId), mName(other.mName), mMandates(other.mMandates), mJoinPolicy(other.mJoinPolicy), mState(other.mState), mTimer(other.mTimer), mOffers(other.mOffers)
+Party::Party(Party&& other) : mId(other.mId), mName(other.mName), mMandates(other.mMandates), mJoinPolicy(other.mJoinPolicy), mState(other.mState), mTimer(other.getTimer()), mOffers(other.mOffers)
 {
 
-    other.mId = 0;
+    other.mId = -1;
     other.mName = "";
     other.mMandates = 0;
     other.mJoinPolicy = nullptr;
@@ -121,7 +121,7 @@ Party& Party::operator=(Party&& other)
         for (Offer * offer : other.mOffers){
             mOffers.push_back(offer);
         }
-        other.mId = 0;
+        other.mId = -1;
         other.mName = "";
         other.mMandates = 0;
         other.mJoinPolicy = nullptr;
@@ -135,4 +135,9 @@ Party& Party::operator=(Party&& other)
 Party::~Party()
 {
     mOffers.shrink_to_fit();
+}
+
+int Party::getTimer() const
+{
+    return mTimer;
 }

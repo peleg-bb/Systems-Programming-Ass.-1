@@ -27,6 +27,7 @@ public:
     int getMandates() const;
     void step(Simulation &s);
     const string &getName() const;
+    int getTimer() const;
 
     //Activate the following parties after implementing the class
 
