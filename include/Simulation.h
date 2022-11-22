@@ -12,7 +12,7 @@ class Simulation
 {
 public:
     Simulation(Graph g, vector<Agent> agents);
-
+    ~Simulation();
     void step();
     bool shouldTerminate() const;
 
@@ -28,7 +28,7 @@ public:
 private:
     Graph mGraph;
     vector<Agent> mAgents;
-    vector<Coalition> mCoalitions;
+    vector<Coalition*> mCoalitions;
     bool mShouldTerminate;
     int mTimer;
 };

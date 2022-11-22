@@ -4,38 +4,24 @@
             {
                 "id": 0,
                 "partyId": 0
-            },
-            {
-                "id": 1,
-                "partyId": 3
             }
         ],
         "coalitions": [],
         "edges": [
             {
                 "from": 0,
-                "to": 2,
-                "weight": 3
-            },
-            {
-                "from": 0,
-                "to": 3,
+                "to": 1,
                 "weight": 1
             },
             {
                 "from": 1,
-                "to": 2,
-                "weight": 1
-            },
-            {
-                "from": 1,
-                "to": 3,
-                "weight": 1
-            },
-            {
-                "from": 2,
                 "to": 0,
-                "weight": 3
+                "weight": 1
+            },
+            {
+                "from": 1,
+                "to": 2,
+                "weight": 1
             },
             {
                 "from": 2,
@@ -45,48 +31,38 @@
             {
                 "from": 2,
                 "to": 3,
-                "weight": 2
-            },
-            {
-                "from": 3,
-                "to": 0,
-                "weight": 1
-            },
-            {
-                "from": 3,
-                "to": 1,
                 "weight": 1
             },
             {
                 "from": 3,
                 "to": 2,
-                "weight": 2
+                "weight": 1
             }
         ],
         "parties": [
             {
                 "id": 0,
-                "mandates": 50,
-                "name": "The Lannisters",
+                "mandates": 25,
+                "name": "Arctic Monkeys",
                 "state": "Joined"
             },
             {
                 "id": 1,
-                "mandates": 30,
-                "name": "The Baratheons",
+                "mandates": 25,
+                "name": "Muse",
                 "state": "Waiting"
             },
             {
                 "id": 2,
-                "mandates": 20,
-                "name": "The Targaryens",
+                "mandates": 25,
+                "name": "Twenty One Pilots",
                 "state": "Waiting"
             },
             {
                 "id": 3,
-                "mandates": 20,
-                "name": "The Starks",
-                "state": "Joined"
+                "mandates": 45,
+                "name": "Foo Fighters",
+                "state": "Waiting"
             }
         ]
     },
@@ -95,51 +71,31 @@
             {
                 "id": 0,
                 "partyId": 0
-            },
-            {
-                "id": 1,
-                "partyId": 3
             }
         ],
         "coalitions": [
             {
-                "mandates": 50,
+                "mandates": 25,
                 "parties": [
                     0
-                ]
-            },
-            {
-                "mandates": 20,
-                "parties": [
-                    3
                 ]
             }
         ],
         "edges": [
             {
                 "from": 0,
-                "to": 2,
-                "weight": 3
-            },
-            {
-                "from": 0,
-                "to": 3,
+                "to": 1,
                 "weight": 1
             },
             {
                 "from": 1,
-                "to": 2,
-                "weight": 1
-            },
-            {
-                "from": 1,
-                "to": 3,
-                "weight": 1
-            },
-            {
-                "from": 2,
                 "to": 0,
-                "weight": 3
+                "weight": 1
+            },
+            {
+                "from": 1,
+                "to": 2,
+                "weight": 1
             },
             {
                 "from": 2,
@@ -149,48 +105,38 @@
             {
                 "from": 2,
                 "to": 3,
-                "weight": 2
-            },
-            {
-                "from": 3,
-                "to": 0,
-                "weight": 1
-            },
-            {
-                "from": 3,
-                "to": 1,
                 "weight": 1
             },
             {
                 "from": 3,
                 "to": 2,
-                "weight": 2
+                "weight": 1
             }
         ],
         "parties": [
             {
                 "id": 0,
-                "mandates": 50,
-                "name": "The Lannisters",
+                "mandates": 25,
+                "name": "Arctic Monkeys",
                 "state": "Joined"
             },
             {
                 "id": 1,
-                "mandates": 30,
-                "name": "The Baratheons",
+                "mandates": 25,
+                "name": "Muse",
+                "state": "CollectingOffers"
+            },
+            {
+                "id": 2,
+                "mandates": 25,
+                "name": "Twenty One Pilots",
                 "state": "Waiting"
             },
             {
-                "id": 2,
-                "mandates": 20,
-                "name": "The Targaryens",
-                "state": "CollectingOffers"
-            },
-            {
                 "id": 3,
-                "mandates": 20,
-                "name": "The Starks",
-                "state": "Joined"
+                "mandates": 45,
+                "name": "Foo Fighters",
+                "state": "Waiting"
             }
         ]
     },
@@ -199,51 +145,31 @@
             {
                 "id": 0,
                 "partyId": 0
-            },
-            {
-                "id": 1,
-                "partyId": 3
             }
         ],
         "coalitions": [
             {
-                "mandates": 50,
+                "mandates": 25,
                 "parties": [
                     0
-                ]
-            },
-            {
-                "mandates": 20,
-                "parties": [
-                    3
                 ]
             }
         ],
         "edges": [
             {
                 "from": 0,
-                "to": 2,
-                "weight": 3
-            },
-            {
-                "from": 0,
-                "to": 3,
+                "to": 1,
                 "weight": 1
             },
             {
                 "from": 1,
-                "to": 2,
-                "weight": 1
-            },
-            {
-                "from": 1,
-                "to": 3,
-                "weight": 1
-            },
-            {
-                "from": 2,
                 "to": 0,
-                "weight": 3
+                "weight": 1
+            },
+            {
+                "from": 1,
+                "to": 2,
+                "weight": 1
             },
             {
                 "from": 2,
@@ -253,48 +179,38 @@
             {
                 "from": 2,
                 "to": 3,
-                "weight": 2
-            },
-            {
-                "from": 3,
-                "to": 0,
-                "weight": 1
-            },
-            {
-                "from": 3,
-                "to": 1,
                 "weight": 1
             },
             {
                 "from": 3,
                 "to": 2,
-                "weight": 2
+                "weight": 1
             }
         ],
         "parties": [
             {
                 "id": 0,
-                "mandates": 50,
-                "name": "The Lannisters",
+                "mandates": 25,
+                "name": "Arctic Monkeys",
                 "state": "Joined"
             },
             {
                 "id": 1,
-                "mandates": 30,
-                "name": "The Baratheons",
+                "mandates": 25,
+                "name": "Muse",
                 "state": "CollectingOffers"
             },
             {
                 "id": 2,
-                "mandates": 20,
-                "name": "The Targaryens",
-                "state": "CollectingOffers"
+                "mandates": 25,
+                "name": "Twenty One Pilots",
+                "state": "Waiting"
             },
             {
                 "id": 3,
-                "mandates": 20,
-                "name": "The Starks",
-                "state": "Joined"
+                "mandates": 45,
+                "name": "Foo Fighters",
+                "state": "Waiting"
             }
         ]
     },
@@ -303,51 +219,31 @@
             {
                 "id": 0,
                 "partyId": 0
-            },
-            {
-                "id": 1,
-                "partyId": 3
             }
         ],
         "coalitions": [
             {
-                "mandates": 50,
+                "mandates": 25,
                 "parties": [
                     0
-                ]
-            },
-            {
-                "mandates": 20,
-                "parties": [
-                    3
                 ]
             }
         ],
         "edges": [
             {
                 "from": 0,
-                "to": 2,
-                "weight": 3
-            },
-            {
-                "from": 0,
-                "to": 3,
+                "to": 1,
                 "weight": 1
             },
             {
                 "from": 1,
-                "to": 2,
-                "weight": 1
-            },
-            {
-                "from": 1,
-                "to": 3,
-                "weight": 1
-            },
-            {
-                "from": 2,
                 "to": 0,
-                "weight": 3
+                "weight": 1
+            },
+            {
+                "from": 1,
+                "to": 2,
+                "weight": 1
             },
             {
                 "from": 2,
@@ -357,48 +253,38 @@
             {
                 "from": 2,
                 "to": 3,
-                "weight": 2
-            },
-            {
-                "from": 3,
-                "to": 0,
-                "weight": 1
-            },
-            {
-                "from": 3,
-                "to": 1,
                 "weight": 1
             },
             {
                 "from": 3,
                 "to": 2,
-                "weight": 2
+                "weight": 1
             }
         ],
         "parties": [
             {
                 "id": 0,
-                "mandates": 50,
-                "name": "The Lannisters",
+                "mandates": 25,
+                "name": "Arctic Monkeys",
                 "state": "Joined"
             },
             {
                 "id": 1,
-                "mandates": 30,
-                "name": "The Baratheons",
+                "mandates": 25,
+                "name": "Muse",
                 "state": "CollectingOffers"
             },
             {
                 "id": 2,
-                "mandates": 20,
-                "name": "The Targaryens",
-                "state": "CollectingOffers"
+                "mandates": 25,
+                "name": "Twenty One Pilots",
+                "state": "Waiting"
             },
             {
                 "id": 3,
-                "mandates": 20,
-                "name": "The Starks",
-                "state": "Joined"
+                "mandates": 45,
+                "name": "Foo Fighters",
+                "state": "Waiting"
             }
         ]
     },
@@ -410,123 +296,6 @@
             },
             {
                 "id": 1,
-                "partyId": 3
-            },
-            {
-                "id": 2,
-                "partyId": 2
-            }
-        ],
-        "coalitions": [
-            {
-                "mandates": 50,
-                "parties": [
-                    0
-                ]
-            },
-            {
-                "mandates": 40,
-                "parties": [
-                    3,
-                    2
-                ]
-            }
-        ],
-        "edges": [
-            {
-                "from": 0,
-                "to": 2,
-                "weight": 3
-            },
-            {
-                "from": 0,
-                "to": 3,
-                "weight": 1
-            },
-            {
-                "from": 1,
-                "to": 2,
-                "weight": 1
-            },
-            {
-                "from": 1,
-                "to": 3,
-                "weight": 1
-            },
-            {
-                "from": 2,
-                "to": 0,
-                "weight": 3
-            },
-            {
-                "from": 2,
-                "to": 1,
-                "weight": 1
-            },
-            {
-                "from": 2,
-                "to": 3,
-                "weight": 2
-            },
-            {
-                "from": 3,
-                "to": 0,
-                "weight": 1
-            },
-            {
-                "from": 3,
-                "to": 1,
-                "weight": 1
-            },
-            {
-                "from": 3,
-                "to": 2,
-                "weight": 2
-            }
-        ],
-        "parties": [
-            {
-                "id": 0,
-                "mandates": 50,
-                "name": "The Lannisters",
-                "state": "Joined"
-            },
-            {
-                "id": 1,
-                "mandates": 30,
-                "name": "The Baratheons",
-                "state": "CollectingOffers"
-            },
-            {
-                "id": 2,
-                "mandates": 20,
-                "name": "The Targaryens",
-                "state": "Joined"
-            },
-            {
-                "id": 3,
-                "mandates": 20,
-                "name": "The Starks",
-                "state": "Joined"
-            }
-        ]
-    },
-    {
-        "agents": [
-            {
-                "id": 0,
-                "partyId": 0
-            },
-            {
-                "id": 1,
-                "partyId": 3
-            },
-            {
-                "id": 2,
-                "partyId": 2
-            },
-            {
-                "id": 3,
                 "partyId": 1
             }
         ],
@@ -534,14 +303,7 @@
             {
                 "mandates": 50,
                 "parties": [
-                    0
-                ]
-            },
-            {
-                "mandates": 70,
-                "parties": [
-                    3,
-                    2,
+                    0,
                     1
                 ]
             }
@@ -549,28 +311,18 @@
         "edges": [
             {
                 "from": 0,
-                "to": 2,
-                "weight": 3
-            },
-            {
-                "from": 0,
-                "to": 3,
+                "to": 1,
                 "weight": 1
             },
             {
                 "from": 1,
-                "to": 2,
-                "weight": 1
-            },
-            {
-                "from": 1,
-                "to": 3,
-                "weight": 1
-            },
-            {
-                "from": 2,
                 "to": 0,
-                "weight": 3
+                "weight": 1
+            },
+            {
+                "from": 1,
+                "to": 2,
+                "weight": 1
             },
             {
                 "from": 2,
@@ -580,48 +332,280 @@
             {
                 "from": 2,
                 "to": 3,
-                "weight": 2
-            },
-            {
-                "from": 3,
-                "to": 0,
-                "weight": 1
-            },
-            {
-                "from": 3,
-                "to": 1,
                 "weight": 1
             },
             {
                 "from": 3,
                 "to": 2,
-                "weight": 2
+                "weight": 1
             }
         ],
         "parties": [
             {
                 "id": 0,
-                "mandates": 50,
-                "name": "The Lannisters",
+                "mandates": 25,
+                "name": "Arctic Monkeys",
                 "state": "Joined"
             },
             {
                 "id": 1,
-                "mandates": 30,
-                "name": "The Baratheons",
+                "mandates": 25,
+                "name": "Muse",
                 "state": "Joined"
             },
             {
                 "id": 2,
-                "mandates": 20,
-                "name": "The Targaryens",
+                "mandates": 25,
+                "name": "Twenty One Pilots",
+                "state": "CollectingOffers"
+            },
+            {
+                "id": 3,
+                "mandates": 45,
+                "name": "Foo Fighters",
+                "state": "Waiting"
+            }
+        ]
+    },
+    {
+        "agents": [
+            {
+                "id": 0,
+                "partyId": 0
+            },
+            {
+                "id": 1,
+                "partyId": 1
+            }
+        ],
+        "coalitions": [
+            {
+                "mandates": 50,
+                "parties": [
+                    0,
+                    1
+                ]
+            }
+        ],
+        "edges": [
+            {
+                "from": 0,
+                "to": 1,
+                "weight": 1
+            },
+            {
+                "from": 1,
+                "to": 0,
+                "weight": 1
+            },
+            {
+                "from": 1,
+                "to": 2,
+                "weight": 1
+            },
+            {
+                "from": 2,
+                "to": 1,
+                "weight": 1
+            },
+            {
+                "from": 2,
+                "to": 3,
+                "weight": 1
+            },
+            {
+                "from": 3,
+                "to": 2,
+                "weight": 1
+            }
+        ],
+        "parties": [
+            {
+                "id": 0,
+                "mandates": 25,
+                "name": "Arctic Monkeys",
+                "state": "Joined"
+            },
+            {
+                "id": 1,
+                "mandates": 25,
+                "name": "Muse",
+                "state": "Joined"
+            },
+            {
+                "id": 2,
+                "mandates": 25,
+                "name": "Twenty One Pilots",
+                "state": "CollectingOffers"
+            },
+            {
+                "id": 3,
+                "mandates": 45,
+                "name": "Foo Fighters",
+                "state": "Waiting"
+            }
+        ]
+    },
+    {
+        "agents": [
+            {
+                "id": 0,
+                "partyId": 0
+            },
+            {
+                "id": 1,
+                "partyId": 1
+            }
+        ],
+        "coalitions": [
+            {
+                "mandates": 50,
+                "parties": [
+                    0,
+                    1
+                ]
+            }
+        ],
+        "edges": [
+            {
+                "from": 0,
+                "to": 1,
+                "weight": 1
+            },
+            {
+                "from": 1,
+                "to": 0,
+                "weight": 1
+            },
+            {
+                "from": 1,
+                "to": 2,
+                "weight": 1
+            },
+            {
+                "from": 2,
+                "to": 1,
+                "weight": 1
+            },
+            {
+                "from": 2,
+                "to": 3,
+                "weight": 1
+            },
+            {
+                "from": 3,
+                "to": 2,
+                "weight": 1
+            }
+        ],
+        "parties": [
+            {
+                "id": 0,
+                "mandates": 25,
+                "name": "Arctic Monkeys",
+                "state": "Joined"
+            },
+            {
+                "id": 1,
+                "mandates": 25,
+                "name": "Muse",
+                "state": "Joined"
+            },
+            {
+                "id": 2,
+                "mandates": 25,
+                "name": "Twenty One Pilots",
+                "state": "CollectingOffers"
+            },
+            {
+                "id": 3,
+                "mandates": 45,
+                "name": "Foo Fighters",
+                "state": "Waiting"
+            }
+        ]
+    },
+    {
+        "agents": [
+            {
+                "id": 0,
+                "partyId": 0
+            },
+            {
+                "id": 1,
+                "partyId": 1
+            },
+            {
+                "id": 2,
+                "partyId": 2
+            }
+        ],
+        "coalitions": [
+            {
+                "mandates": 75,
+                "parties": [
+                    0,
+                    1,
+                    2
+                ]
+            }
+        ],
+        "edges": [
+            {
+                "from": 0,
+                "to": 1,
+                "weight": 1
+            },
+            {
+                "from": 1,
+                "to": 0,
+                "weight": 1
+            },
+            {
+                "from": 1,
+                "to": 2,
+                "weight": 1
+            },
+            {
+                "from": 2,
+                "to": 1,
+                "weight": 1
+            },
+            {
+                "from": 2,
+                "to": 3,
+                "weight": 1
+            },
+            {
+                "from": 3,
+                "to": 2,
+                "weight": 1
+            }
+        ],
+        "parties": [
+            {
+                "id": 0,
+                "mandates": 25,
+                "name": "Arctic Monkeys",
+                "state": "Joined"
+            },
+            {
+                "id": 1,
+                "mandates": 25,
+                "name": "Muse",
+                "state": "Joined"
+            },
+            {
+                "id": 2,
+                "mandates": 25,
+                "name": "Twenty One Pilots",
                 "state": "Joined"
             },
             {
                 "id": 3,
-                "mandates": 20,
-                "name": "The Starks",
-                "state": "Joined"
+                "mandates": 45,
+                "name": "Foo Fighters",
+                "state": "CollectingOffers"
             }
         ]
     }

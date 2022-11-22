@@ -83,7 +83,7 @@ void Party::recieveOffer(Offer &offer)
 }
 
 // Rule of 5
-Party::Party(const Party& other) : mId(other.mId), mName(other.mName), mMandates(other.mMandates), mJoinPolicy(other.mJoinPolicy), mState(other.mState), mTimer(other.getTimer())
+Party::Party(const Party& other) : mId(other.mId), mName(other.mName), mMandates(other.mMandates), mJoinPolicy(other.mJoinPolicy->clone()), mState(other.mState), mTimer(other.mTimer)
 {
     for (Offer * offer : other.mOffers){
         mOffers.push_back(offer);
@@ -96,7 +96,7 @@ Party& Party::operator=(const Party& other)
         mId = other.mId;
         mName = other.mName;
         mMandates = other.mMandates;
-        mJoinPolicy = other.mJoinPolicy;
+        mJoinPolicy = other.mJoinPolicy->clone();
         mState = other.mState;
         mTimer = other.mTimer;
         for (Offer * offer : other.mOffers){
@@ -106,7 +106,7 @@ Party& Party::operator=(const Party& other)
     return *this;
 }
 // move constructor
-Party::Party(Party&& other) : mId(other.mId), mName(other.mName), mMandates(other.mMandates), mJoinPolicy(other.mJoinPolicy), mState(other.mState), mTimer(other.getTimer()), mOffers(other.mOffers)
+Party::Party(Party&& other) : mId(other.mId), mName(other.mName), mMandates(other.mMandates), mJoinPolicy(other.mJoinPolicy->clone()), mState(other.mState), mTimer(other.getTimer()), mOffers(other.mOffers)
 {
 
     other.mId = -1;
@@ -115,7 +115,9 @@ Party::Party(Party&& other) : mId(other.mId), mName(other.mName), mMandates(othe
     other.mJoinPolicy = nullptr;
     other.mState = Waiting;
     other.mTimer = 0;
-    other.mOffers.shrink_to_fit();
+    for (Offer * offer : mOffers){
+            delete offer;
+        }
 }
 // move assignment
 Party& Party::operator=(Party&& other)
@@ -124,7 +126,7 @@ Party& Party::operator=(Party&& other)
         mId = other.mId;
         mName = other.mName;
         mMandates = other.mMandates;
-        mJoinPolicy = other.mJoinPolicy;
+        mJoinPolicy = other.mJoinPolicy->clone();
         mState = other.mState;
         mTimer = other.mTimer;
         for (Offer * offer : other.mOffers){
@@ -136,14 +138,19 @@ Party& Party::operator=(Party&& other)
         other.mJoinPolicy = nullptr;
         other.mState = Waiting;
         other.mTimer = 0;
-        other.mOffers.shrink_to_fit();
+        for (Offer * offer : mOffers){
+            delete offer;
+        }
     }
     return *this;
 }
 // destructor
 Party::~Party()
 {
-    mOffers.shrink_to_fit();
+    delete mJoinPolicy;
+    for (Offer * offer : mOffers){
+        delete offer;
+    }
 }
 
 int Party::getTimer() const

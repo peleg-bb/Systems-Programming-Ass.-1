@@ -21,7 +21,7 @@ public:
     int getMandates() const;
     const std::vector<int> &getPartiesOffered() const;
     const std::vector<int> &getPartiesJoined() const; // Perhaps I should pass by value instead of reference?
-    Coalition * clone() const;
+    //Coalition * clone() const;
 
     // setters
     void setMandates(int mandates);
