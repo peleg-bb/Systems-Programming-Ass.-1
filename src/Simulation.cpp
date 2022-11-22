@@ -11,7 +11,7 @@ void Simulation::step()
     if(mTimer==0){
         for (Agent agent : mAgents){
             agent.createCoalition(mGraph.getMandates(agent.getPartyId()));
-            mCoalitions.push_back(agent.getCoalition());            
+            mCoalitions.push_back(&agent.getCoalition());            
         }
         mTimer = -1;
     }
@@ -67,8 +67,8 @@ const vector<vector<int>> Simulation::getPartiesByCoalitions() const
 {
     // TODO: you MUST implement this method for getting proper output, read the documentation above.
     vector<vector<int>> _coalitionsVector;
-    for(Coalition coalition : mCoalitions){
-        _coalitionsVector.push_back(coalition.getPartiesJoined());
+    for(Coalition* coalition : mCoalitions){
+        _coalitionsVector.push_back(coalition->getPartiesJoined());
     }
     return _coalitionsVector;
 }

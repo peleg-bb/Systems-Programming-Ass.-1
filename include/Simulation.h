@@ -28,7 +28,7 @@ public:
 private:
     Graph mGraph;
     vector<Agent> mAgents;
-    vector<Coalition> mCoalitions;
+    vector<Coalition*> mCoalitions;
     bool mShouldTerminate;
     int mTimer;
 };

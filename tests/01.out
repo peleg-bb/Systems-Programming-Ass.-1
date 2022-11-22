@@ -425,9 +425,10 @@
                 ]
             },
             {
-                "mandates": 20,
+                "mandates": 40,
                 "parties": [
-                    3
+                    3,
+                    2
                 ]
             }
         ],
@@ -537,9 +538,11 @@
                 ]
             },
             {
-                "mandates": 20,
+                "mandates": 70,
                 "parties": [
-                    3
+                    3,
+                    2,
+                    1
                 ]
             }
         ],

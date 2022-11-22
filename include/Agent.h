@@ -20,7 +20,7 @@ public:
     void step(Simulation &);
     void createCoalition(int mandates);
     void offerParty(Party& party);
-    const Coalition& getCoalition() const;
+    Coalition& getCoalition() const;
     //Activate the following parties after implementing the class
 
     //rule of 5

@@ -116,7 +116,7 @@ void Agent::setPartyId(int partyId)
     mPartyId = partyId;
 }
 
-const Coalition& Agent::getCoalition() const
+Coalition& Agent::getCoalition() const
 {
     return *mCoalition;
 }
