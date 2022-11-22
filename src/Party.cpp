@@ -106,7 +106,7 @@ Party& Party::operator=(const Party& other)
     return *this;
 }
 // move constructor
-Party::Party(Party&& other) : mId(other.mId), mName(other.mName), mMandates(other.mMandates), mJoinPolicy(other.mJoinPolicy->clone()), mState(other.mState), mTimer(other.getTimer()), mOffers(other.mOffers)
+Party::Party(Party&& other) : mId(other.mId), mName(other.mName), mMandates(other.mMandates), mJoinPolicy(other.mJoinPolicy), mState(other.mState), mTimer(other.getTimer()), mOffers(other.mOffers)
 {
 
     other.mId = -1;
@@ -126,7 +126,7 @@ Party& Party::operator=(Party&& other)
         mId = other.mId;
         mName = other.mName;
         mMandates = other.mMandates;
-        mJoinPolicy = other.mJoinPolicy->clone();
+        mJoinPolicy = other.mJoinPolicy;
         mState = other.mState;
         mTimer = other.mTimer;
         for (Offer * offer : other.mOffers){
