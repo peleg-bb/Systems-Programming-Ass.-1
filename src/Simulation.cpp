@@ -10,15 +10,20 @@ void Simulation::step()
     // TODO: implement this method
     if(mTimer==0){
         for (Agent agent : mAgents){
-            agent.createCoalition(mGraph.getMandates(agent.getPartyId()));            
+            agent.createCoalition(mGraph.getMandates(agent.getPartyId()));
+            mCoalitions.push_back(agent.getCoalition());            
         }
         mTimer = -1;
     }
-    for (Party party : mGraph.getParties())
-    {
+    for (int i=0; i<mGraph.getNumVertices(); i++){
+        Party & party = mGraph.GetParty(i);
         party.step(*this);
-        // check if all parties have joined a coalition
     }
+    //for (Party party : mGraph.getParties())
+    // {
+    //     party.step(*this);
+    //     // check if all parties have joined a coalition
+    // }
     for (Agent agent : mAgents)
     {
         agent.step(*this);
