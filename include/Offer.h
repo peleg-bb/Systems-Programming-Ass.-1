@@ -29,6 +29,7 @@ public:
     Coalition* getCoalition();
     int getMandates();
     int getAgentId();
+    void setAgentId(int agentId);
 };
 
 

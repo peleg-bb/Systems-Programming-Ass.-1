@@ -23,6 +23,10 @@ void Simulation::step()
     {
         agent.step(*this);
     }
+    if (mAgents.size() == mGraph.getNumVertices()) // If all parties have joined a coalition
+    {
+        notifyTermination();
+    }
 }
 
 bool Simulation::shouldTerminate() const
@@ -67,4 +71,12 @@ const vector<vector<int>> Simulation::getPartiesByCoalitions() const
 void Simulation::notifyTermination()
 {
     mShouldTerminate = true;
+}
+
+void Simulation::notifyJoined(int AgentId, int PartyId)
+{
+    Agent newAgent = mAgents[AgentId];
+    newAgent.setPartyId(PartyId);
+    newAgent.setAgentId((int)mAgents.size());
+    mAgents.push_back(newAgent);
 }

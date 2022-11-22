@@ -21,8 +21,15 @@ void Agent::step(Simulation &sim)
 {
     // TODO: implement this method
     vector<int> _partiesOffered = mCoalition->getPartiesOffered();
-    vector<vector<int>> adjacencyMatrix = sim.getGraph().getEdges();
-    int bestIndex = mSelectionPolicy->Select(adjacencyMatrix, mPartyId, _partiesOffered);
+
+    const Graph & graph = sim.getGraph();
+    // vector<vector<int>> adjacencyMatrix = sim.getGraph().getEdges();
+    int bestIndex = mSelectionPolicy->Select(graph, mPartyId, mCoalition->getPartiesOffered());
+    if (bestIndex == -1)
+    {
+        return; // In some occasions we have no one to offer to, in those cases we should just return
+    }
+    
     Party& party = sim.GetParty(bestIndex); // Returns a non-const reference to the party, should be deleted in sim I believe
     offerParty(party);
     mCoalition->addOfferedParty(bestIndex);
@@ -37,7 +44,9 @@ void Agent::createCoalition(int mandates)
 
 void Agent::offerParty(Party& party)
 {
-    Offer* offer = new Offer(mCoalition, 0); // It is OK to instantiate an offer with 0 mandates, see Offer.getMandates()
+    Offer* offer = new Offer(mCoalition, 0); 
+    offer->setAgentId(mAgentId);
+    // It is OK to instantiate an offer with 0 mandates, see Offer.getMandates()
     //Who deletes the offer?
     //The party should delete all the offers it had received when it joins a coalition 
     party.recieveOffer(*offer); 
@@ -45,7 +54,7 @@ void Agent::offerParty(Party& party)
 
 // rule of 5
 // copy constructor
-Agent::Agent(const Agent& other) : mAgentId(other.mAgentId), mPartyId(other.mPartyId), mSelectionPolicy(other.mSelectionPolicy->clone()), mCoalition(other.mCoalition->clone())
+Agent::Agent(const Agent& other) : mAgentId(other.mAgentId), mPartyId(other.mPartyId), mSelectionPolicy(other.mSelectionPolicy->clone()), mCoalition(other.mCoalition)
 {
 }
 // copy assignment
@@ -100,4 +109,9 @@ Agent::Agent(int PartyId, SelectionPolicy *selectionPolicy, Coalition *coalition
 void Agent::setAgentId(int agentId)
 {
     mAgentId = agentId;
+}
+
+void Agent::setPartyId(int partyId)
+{
+    mPartyId = partyId;
 }
