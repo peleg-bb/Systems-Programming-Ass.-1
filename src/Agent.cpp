@@ -20,7 +20,7 @@ int Agent::getPartyId() const
 void Agent::step(Simulation &sim)
 {
     // TODO: implement this method
-    vector<int> _partiesOffered = mCoalition->getPartiesOffered();
+    //vector<int> _partiesOffered = mCoalition->getPartiesOffered();
 
     const Graph & graph = sim.getGraph();
     // vector<vector<int>> adjacencyMatrix = sim.getGraph().getEdges();
@@ -114,4 +114,9 @@ void Agent::setAgentId(int agentId)
 void Agent::setPartyId(int partyId)
 {
     mPartyId = partyId;
+}
+
+const Coalition& Agent::getCoalition() const
+{
+    return *mCoalition;
 }

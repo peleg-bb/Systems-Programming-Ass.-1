@@ -34,9 +34,17 @@ void Party::step(Simulation &s)
         return;
     }
     if (getState()==CollectingOffers){
-        mTimer = 1;
+        if (mTimer==2){
+            mTimer = 3;
+        }
+        else if (mTimer==1){
+            mTimer = 2;
+        }
+        else if (mTimer==3){
+            mTimer = 4;
+        }
     }   
-    if (mTimer >= 4){
+    if (mTimer == 4){
         Offer * chosenOffer = mJoinPolicy->Join(mOffers);
         if (chosenOffer != nullptr){
             Coalition * chosenCoalition = chosenOffer->getCoalition(); // check about the fact that this is a pointer
@@ -47,14 +55,15 @@ void Party::step(Simulation &s)
                 //s.notifyTermination(chosenCoalition);
                 s.notifyTermination();
             }
-            //delete chosenOffer;
+            /*delete chosenOffer;
             // delete chosenOffer?
             // Most likely yes, I think we created a duplicate
             // If it is a pointer to an object that is in the vector of offers
             // Then the vector will delete it when it is done with it
 
             // delete chosenCoalition?
-            // Most likely not, because it is a pointer to an the actual coalition that is in the simulation
+            //Most likely not, because it is a pointer to an the actual coalition that is in the simulation
+            */
         }
         setState(Joined);
     }
@@ -66,8 +75,8 @@ void Party::recieveOffer(Offer &offer)
     if (mState == Joined){
         throw std::invalid_argument("Party has already joined a coalition");
     }
-    if (mState == Waiting){
-        mTimer++;
+    if (mState == Waiting) {
+        mTimer = 1;
         mState = CollectingOffers;
     }
     mOffers.push_back(&offer);
