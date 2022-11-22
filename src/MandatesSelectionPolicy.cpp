@@ -4,16 +4,23 @@ MandatesSelectionPolicy::MandatesSelectionPolicy() {}
 MandatesSelectionPolicy::~MandatesSelectionPolicy() {}
 
 
-int MandatesSelectionPolicy::Select(const Graph & graph, int myIndex, vector<int> irrelevent) {
+int MandatesSelectionPolicy::Select(const Graph & graph, int myIndex, const vector<int> & irrelevent) {
+    // vector<int> irrelevent = coalition.getOfferedParties();
     vector<vector<int>> edges = graph.getEdges();
+    vector<int> irRelevent = irrelevent;
+    for (unsigned int i=0; i<graph.getNumVertices(); i++){
+        if (graph.getParty(i).getState()==Joined){
+            irRelevent.push_back(i);
+        }
+    }
     int bestMandates = -1;
     int bestIndex = -1;
     vector<int> relevant{};
     for (unsigned int i=0; i<edges.size(); i++){
         //check if irrelevent contains i
         bool contained = false;
-        for (unsigned int j=0; j<irrelevent.size(); j++){
-            if (i==irrelevent[j]){
+        for (unsigned int j=0; j<irRelevent.size(); j++){
+            if (i==irRelevent[j]){
                 contained = true;
                 break;
             }

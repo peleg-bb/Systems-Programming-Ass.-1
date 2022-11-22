@@ -23,6 +23,10 @@ void Simulation::step()
     {
         agent.step(*this);
     }
+    if (mAgents.size() == mGraph.getNumVertices()) // If all parties have joined a coalition
+    {
+        notifyTermination();
+    }
 }
 
 bool Simulation::shouldTerminate() const

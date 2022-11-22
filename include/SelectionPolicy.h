@@ -5,7 +5,7 @@
 using std::vector;
 class SelectionPolicy {
 public:
-    virtual int Select(const Graph & graph, int myIndex, vector<int> irrelevent) = 0;
+    virtual int Select(const Graph & graph, int myIndex, const vector<int> & irrelevent) = 0;
     virtual ~SelectionPolicy() = default;
     virtual SelectionPolicy * clone() const = 0;
  };
@@ -15,7 +15,7 @@ public:
     MandatesSelectionPolicy();
     ~MandatesSelectionPolicy();
     MandatesSelectionPolicy* clone() const override;
-    int Select(const Graph & graph, int myIndex, vector<int> irrelevent) override;
+    int Select(const Graph & graph, int myIndex, const vector<int> & irrelevent) override;
  };
 
 class EdgeWeightSelectionPolicy: public SelectionPolicy{
@@ -23,5 +23,5 @@ public:
     EdgeWeightSelectionPolicy();
     ~EdgeWeightSelectionPolicy();
     EdgeWeightSelectionPolicy* clone() const override;
-    int Select(const Graph & graph, int myIndex, vector<int> irrelevent) override;
+    int Select(const Graph & graph, int myIndex, const vector<int> & irrelevent) override;
  };

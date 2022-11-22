@@ -75,7 +75,7 @@ Coalition * Coalition::clone() const
     c->setPartiesOffered(mPartiesOffered);
     c->setMandates(mMandates);
     return c; // memory leak?
-}
+} 
 // setters
 void Coalition::setMandates(int mandates)
 {
