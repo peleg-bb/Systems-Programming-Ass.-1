@@ -8,13 +8,6 @@ Simulation::Simulation(Graph graph, vector<Agent> agents) : mGraph(graph), mAgen
 void Simulation::step()
 {
     // TODO: implement this method
-    if(mTimer==0){
-        for (Agent agent : mAgents){
-            agent.createCoalition(mGraph.getMandates(agent.getPartyId()));
-            mCoalitions.push_back(&agent.getCoalition());            
-        }
-        mTimer = -1;
-    }
     for (int i=0; i<mGraph.getNumVertices(); i++){
         Party & party = mGraph.GetParty(i);
         party.step(*this);
@@ -93,4 +86,12 @@ Simulation::~Simulation()
     {
         delete coalition;
     }
+}
+
+void Simulation::formCoalitions()
+{
+    for (Agent agent : mAgents){
+            agent.createCoalition(mGraph.getMandates(agent.getPartyId()));
+            mCoalitions.push_back(&agent.getCoalition());            
+        }
 }

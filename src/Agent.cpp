@@ -96,7 +96,6 @@ Agent& Agent::operator=(Agent&& other)
 // destructor
 Agent::~Agent()
 {
-    
     delete mSelectionPolicy;
      // Do not delete the coalition! The coalition is deleted in the simulation!
 }

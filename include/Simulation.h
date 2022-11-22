@@ -24,6 +24,7 @@ public:
     
     void notifyTermination();
     void notifyJoined(int AgentId, int PartyId);
+    void formCoalitions();
 
 private:
     Graph mGraph;

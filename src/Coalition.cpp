@@ -12,35 +12,35 @@ Coalition::Coalition() {
 } // Use only for cloning
 Coalition::~Coalition() {}
 Coalition::Coalition(const Coalition& other) : mPartiesJoined(other.mPartiesJoined), mPartiesOffered(other.mPartiesOffered), mMandates(other.mMandates) {}
-Coalition& Coalition::operator=(const Coalition& other)
-{
-    if (this != &other)
-    {
-        mPartiesJoined = other.mPartiesJoined;
-        mPartiesOffered = other.mPartiesOffered;
-        mMandates = other.mMandates;
-    }
-    return *this;
-}
-Coalition::Coalition(Coalition&& other) : mPartiesJoined(other.mPartiesJoined), mPartiesOffered(other.mPartiesOffered), mMandates(other.mMandates)
-{
-    other.mPartiesJoined = {};
-    other.mPartiesOffered = {};
-    other.mMandates = 0;
-}
-Coalition& Coalition::operator=(Coalition&& other)
-{
-    if (this != &other)
-    {
-        mPartiesJoined = other.mPartiesJoined;
-        mPartiesOffered = other.mPartiesOffered;
-        mMandates = other.mMandates;
-        other.mPartiesJoined = {};
-        other.mPartiesOffered = {};
-        other.mMandates = 0;
-    }
-    return *this;
-}
+// Coalition& Coalition::operator=(const Coalition& other)
+// {
+//     if (this != &other)
+//     {
+//         mPartiesJoined = other.mPartiesJoined;
+//         mPartiesOffered = other.mPartiesOffered;
+//         mMandates = other.mMandates;
+//     }
+//     return *this;
+// }
+// Coalition::Coalition(Coalition&& other) : mPartiesJoined(other.mPartiesJoined), mPartiesOffered(other.mPartiesOffered), mMandates(other.mMandates)
+// {
+//     other.mPartiesJoined = {};
+//     other.mPartiesOffered = {};
+//     other.mMandates = 0;
+// }
+// Coalition& Coalition::operator=(Coalition&& other)
+// {
+//     if (this != &other)
+//     {
+//         mPartiesJoined = other.mPartiesJoined;
+//         mPartiesOffered = other.mPartiesOffered;
+//         mMandates = other.mMandates;
+//         other.mPartiesJoined = {};
+//         other.mPartiesOffered = {};
+//         other.mMandates = 0;
+//     }
+//     return *this;
+// }
 void Coalition::addParty(int partyId, int mandates)
 {
     mPartiesJoined.push_back(partyId);
@@ -68,14 +68,6 @@ const std::vector<int> &Coalition::getPartiesJoined() const
     return mPartiesJoined;
 }
 
-// Coalition * Coalition::clone() const
-// {
-//     Coalition* c = new Coalition();
-//     c->setPartiesJoined(mPartiesJoined);
-//     c->setPartiesOffered(mPartiesOffered);
-//     c->setMandates(mMandates);
-//     return c; // memory leak?
-// } 
 // setters
 void Coalition::setMandates(int mandates)
 {

@@ -16,7 +16,7 @@ public:
     ~MandatesSelectionPolicy();
     MandatesSelectionPolicy* clone() const override;
     int Select(const Graph & graph, int myIndex, const vector<int> & irrelevent) override;
- };
+};
 
 class EdgeWeightSelectionPolicy: public SelectionPolicy{
 public:

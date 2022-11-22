@@ -17,6 +17,7 @@ int main(int argc, char **argv)
     const string config_path = argv[1];
     Simulation simulation = Parser::readSimulation(argv[1]);
     // run simulation and store json state after each iteration
+    simulation.formCoalitions();
     vector<json> outPerIter = {Parser::makeJson(simulation)};
     while (!simulation.shouldTerminate())
     {
