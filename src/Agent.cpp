@@ -65,7 +65,7 @@ Agent& Agent::operator=(const Agent& other)
         mAgentId = other.mAgentId;
         mPartyId = other.mPartyId;
         mSelectionPolicy = other.mSelectionPolicy->clone();
-        mCoalition = other.mCoalition->clone();
+        mCoalition = other.mCoalition;
     }
     return *this;
 }
@@ -96,9 +96,9 @@ Agent& Agent::operator=(Agent&& other)
 // destructor
 Agent::~Agent()
 {
-    //delete mCoalition; 
+    
     delete mSelectionPolicy;
-     // I am deleting the coalition here, but I am not sure if it is the right place
+     // Do not delete the coalition! The coalition is deleted in the simulation!
 }
 
 Agent::Agent(int PartyId, SelectionPolicy *selectionPolicy, Coalition *coalition) : mAgentId(0), mPartyId(PartyId), mSelectionPolicy(selectionPolicy), mCoalition(coalition)

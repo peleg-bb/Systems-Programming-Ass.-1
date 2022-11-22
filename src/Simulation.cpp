@@ -85,3 +85,12 @@ void Simulation::notifyJoined(int AgentId, int PartyId)
     newAgent.setAgentId((int)mAgents.size());
     mAgents.push_back(newAgent);
 }
+
+Simulation::~Simulation()
+{
+    // delete all the coalitions
+    for (Coalition* coalition : mCoalitions)
+    {
+        delete coalition;
+    }
+}

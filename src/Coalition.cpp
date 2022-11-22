@@ -68,14 +68,14 @@ const std::vector<int> &Coalition::getPartiesJoined() const
     return mPartiesJoined;
 }
 
-Coalition * Coalition::clone() const
-{
-    Coalition* c = new Coalition();
-    c->setPartiesJoined(mPartiesJoined);
-    c->setPartiesOffered(mPartiesOffered);
-    c->setMandates(mMandates);
-    return c; // memory leak?
-} 
+// Coalition * Coalition::clone() const
+// {
+//     Coalition* c = new Coalition();
+//     c->setPartiesJoined(mPartiesJoined);
+//     c->setPartiesOffered(mPartiesOffered);
+//     c->setMandates(mMandates);
+//     return c; // memory leak?
+// } 
 // setters
 void Coalition::setMandates(int mandates)
 {
